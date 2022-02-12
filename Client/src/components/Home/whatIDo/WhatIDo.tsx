@@ -4,7 +4,7 @@ import img2 from "../../../assets/images/img2.jpg";
 
 const WhatIDo = () => {
   return (
-    <div data-aos="fade-up" className="lg:flex">
+    <div id="whatIDo" data-aos="fade-right" className="lg:flex">
       <img
         className="hidden lg:flex lg:flex-1 max-h-screen object-cover"
         src={img2}

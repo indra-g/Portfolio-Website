@@ -1,4 +1,4 @@
-import NavBar from "../NavBar";
+import NavBar from "./NavBar";
 import IntroText from "./IntroText";
 
 import img1 from "../../../assets/images/img1.jpg";

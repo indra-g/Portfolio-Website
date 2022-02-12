@@ -6,7 +6,6 @@ import line from "../../../assets/svgs/line.svg";
 const WhatIDoText: React.FC = () => {
   return (
     <div
-      id="whatIDo"
       className="flex-1 flex flex-col justify-evenly items-end h-screen lg:border-b lg:border-black"
     >
       <div className="flex space-x-2 mr-5 md:mr-20">

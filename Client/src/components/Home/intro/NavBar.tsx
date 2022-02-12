@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import logo from "../../assets/svgs/logo.svg";
+import logo from "../../../assets/svgs/logo.svg";
 import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
