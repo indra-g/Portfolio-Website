@@ -1,0 +1,19 @@
+.swiper {
+  height: 80%;
+  width: 80%;
+}
+.swiper-button-next {
+  color: #0057ff;
+}
+
+@media screen and (max-width: 650px) {
+  .swiper-button-next::after {
+    display: none;
+  }
+  .swiper-button-prev::after {
+    display: none;
+  }
+  .swiper {
+    width: 90%;
+  }
+}

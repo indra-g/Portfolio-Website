@@ -5,11 +5,11 @@ import linkedInLogo from "../../../assets/svgs/linkedin-brand.svg";
 const Footer = () => {
   return (
     <div className="text-center py-4 lg:py-0">
-      <p className="font-medium font-roboto my-2 px-7">
-        Let's connect <br /> Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do
+      <p className="my-2 font-roboto px-7">Let's connect</p>
+      <p className="my-2 font-roboto px-7">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       </p>
-      <div className="flex items-center justify-center space-x-2 my-2">
+      <div className="flex items-center justify-center space-x-2 pt-1">
         <a href="https://github.com/indra-g">
           <img
             className="h-6 w-6 md:h-7 md:w-7"
