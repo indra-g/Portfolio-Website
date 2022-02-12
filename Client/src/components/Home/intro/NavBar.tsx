@@ -12,14 +12,14 @@ const NavBar: React.FC = () => {
         <div className="flex">
           <Link
             to="/projects"
-            className="flex my-10 mx-2 md:m-10 text-gray-400 font-regular space-x-2 hover:text-gray-700 transition duration-300 font-roboto"
+            className="flex my-10 mx-2 md:m-10 text-gray-400 font-regular space-x-2 hover:text-gray-700 transition duration-300 font-roboto items-center"
           >
             <LayersOutlinedIcon />
-            <span>Projects</span>
+            <h6>Projects</h6>
           </Link>
-          <button className="flex my-10 mx-2 md:mx-10 font-regular space-x-2 text-gray-400 hover:text-gray-700 transition duration-300 font-roboto">
+          <button className="flex my-10 mx-2 md:mx-10 font-regular space-x-2 text-gray-400 hover:text-gray-700 transition duration-300 font-roboto ">
             <EmailOutlinedIcon />
-            <span>Contact</span>
+            <h6>Contact</h6>
           </button>
         </div>
       </nav>

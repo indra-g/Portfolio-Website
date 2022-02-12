@@ -3,7 +3,7 @@ import Grid from "./Grid";
 const MyExpertise = () => {
   return (
     <>
-      <div data-aos="fade-left" className="h-screen">
+      <div data-aos="fade-left" className="min-h-screen">
         <div className="text-center">
           <p className="text-gray-500 font-roboto font-medium tracking-widest text-sm p-5 pt-5 md:pt-10">
             MY SKILLS

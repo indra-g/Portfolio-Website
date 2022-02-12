@@ -9,7 +9,7 @@ const WhatIDoText: React.FC = () => {
       className="flex-1 flex flex-col justify-evenly items-end h-screen lg:border-b lg:border-black"
     >
       <div className="flex space-x-2 mr-5 md:mr-20">
-        <h6 className="text-primary font-roboto py-4 text-lg">What I Do</h6>
+        <h6 className="text-primary font-roboto py-4 md:text-lg">What I Do</h6>
         <img src={line} alt="line"></img>
       </div>
       <div className="mx-5 md:mr-20">

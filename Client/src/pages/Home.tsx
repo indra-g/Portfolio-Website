@@ -1,6 +1,7 @@
 import Intro from "../components/Home/intro/Intro";
 import WhatIDo from "../components/Home/whatIDo/WhatIDo";
 import MyExpertise from "../components/Home/expertise/MyExpertise";
+import RecentWork from "../components/Home/recentWork/RecentWork";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <Intro />
       <WhatIDo />
       <MyExpertise />
+      <RecentWork />
     </div>
   );
 };
