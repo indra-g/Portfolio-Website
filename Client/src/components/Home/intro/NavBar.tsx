@@ -1,10 +1,17 @@
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import ContactContext from "../../../context/contactContext";
 
 import logo from "../../../assets/svgs/logo.svg";
 import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 
 const NavBar: React.FC = () => {
+  const contactCtx = useContext(ContactContext);
+  const showContact = () => {
+    contactCtx.showContact();
+  };
+
   return (
     <>
       <nav className="flex justify-evenly items-center h-max my-4">
@@ -17,7 +24,10 @@ const NavBar: React.FC = () => {
             <LayersOutlinedIcon />
             <h6>Projects</h6>
           </Link>
-          <button className="flex my-10 mx-2 md:mx-10 font-regular space-x-2 text-gray-400 hover:text-gray-700 transition duration-300 font-roboto ">
+          <button
+            onClick={showContact}
+            className="flex my-10 mx-2 md:mx-10 font-regular space-x-2 text-gray-400 hover:text-gray-700 transition duration-300 font-roboto "
+          >
             <EmailOutlinedIcon />
             <h6>Contact</h6>
           </button>

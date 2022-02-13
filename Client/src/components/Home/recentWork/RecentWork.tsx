@@ -9,7 +9,7 @@ import line from "../../../assets/svgs/line.svg";
 const RecentWork = () => {
   return (
     <div data-aos="fade-right" className="min-h-screen">
-      <div className="flex justify-between mx-5 md:mx-20 py-16 md:py-10">
+      <div className="flex justify-between mx-5 md:mx-20 py-5 md:py-10 lg:py-16">
         <div className="flex items-center space-x-2">
           <img src={line} alt="line"></img>
           <h6 className="text-primary font-roboto md:text-lg">Recent Works</h6>

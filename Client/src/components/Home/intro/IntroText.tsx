@@ -24,7 +24,7 @@ const IntroText = () => {
         </h6>
       </div>
       <div className="flex items-center justify-around mb-14">
-        <Link to="whatIDo" duration="2000" spy={true} smooth={true}>
+        <Link to="whatIDo" duration={1800} spy={true} smooth={true}>
           <div className="flex items-center space-x-4">
             <button className="rounded-full shadow-xl p-4 hover:shadow-md transition duration-300">
               <img
@@ -37,10 +37,18 @@ const IntroText = () => {
           </div>
         </Link>
         <div className="flex space-x-2">
-          <a href="https://github.com/indra-g">
+          <a
+            href="https://github.com/indra-g"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             <img src={gitHubLogo} className="h-7 w-7" alt="githubLogo" />
           </a>
-          <a href="https://www.linkedin.com/in/indra-shekar-g-31a3561ba/">
+          <a
+            href="https://www.linkedin.com/in/indra-shekar-g-31a3561ba/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             <img src={linkedInLogo} className="h-7 w-7" alt="linkedInLogo" />
           </a>
         </div>

@@ -5,6 +5,7 @@ module.exports = {
       colors: {
         primary: "#0057FF",
         secondary: "#40CCCC",
+        backdrop: "#000000bf",
       },
       fontFamily: {
         roboto: ["Roboto"],
