@@ -2,7 +2,7 @@ import { useState } from "react";
 import ContactContext from "./contactContext";
 
 const ContactProvider: React.FC = (props) => {
-  const [contactIsShown, setContactIsShown] = useState<boolean>(true);
+  const [contactIsShown, setContactIsShown] = useState<boolean>(false);
   const showContact = () => {
     setContactIsShown(true);
   };
