@@ -3,6 +3,7 @@ import WhatIDo from "../components/Home/whatIDo/WhatIDo";
 import MyExpertise from "../components/Home/expertise/MyExpertise";
 import RecentWork from "../components/Home/recentWork/RecentWork";
 import Contact from "../components/Contact/Contact";
+import GoToTop from "../components/UI/GoToTop";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <WhatIDo />
       <MyExpertise />
       <RecentWork />
+      <GoToTop />
     </div>
   );
 };

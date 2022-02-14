@@ -15,7 +15,9 @@ const NavBar: React.FC = () => {
   return (
     <>
       <nav className="flex justify-evenly items-center h-max my-4">
-        <img src={logo} alt={logo} />
+        <Link to="/">
+          <img src={logo} alt={logo} />
+        </Link>
         <div className="flex">
           <Link
             to="/projects"

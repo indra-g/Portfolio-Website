@@ -11,9 +11,9 @@ const Footer = () => {
     contactCtx.showContact();
   };
   return (
-    <div className="text-center py-4 lg:py-0">
+    <div className="text-center py-5">
       <p className="my-2 font-roboto px-7">Let's connect</p>
-      <div className="flex items-center justify-center space-x-2 py-1 lg:mb-2">
+      <div className="flex items-center justify-center space-x-2 py-1">
         <a
           href="https://github.com/indra-g"
           target="_blank"

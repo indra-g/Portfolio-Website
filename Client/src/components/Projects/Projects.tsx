@@ -49,27 +49,29 @@ const Dummy_Projects = [
 
 const Projects = () => {
   return (
-    <div className="h-screen text-center">
-      <NavBar text="Bringing ideas of life" />
-      <h1 className="text-3xl md:text-4xl font-roboto font-medium">My Projects</h1>
-      <div
-        className="lg:p-10 m-5"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-20 px-4 md:px-10">
-          {Dummy_Projects.map((project) => {
-            return (
-              <ProjectItems
-                key={project.id}
-                name={project.name}
-                description={project.description}
-                id={project.id}
-              />
-            );
-          })}
+    <>
+      <div className="text-center">
+        <NavBar text="Bringing ideas of life" />
+        <h1 className="text-3xl md:text-4xl font-roboto font-medium">
+          My Projects
+        </h1>
+        <div className="lg:p-10 m-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-20 px-4 md:px-10">
+            {Dummy_Projects.map((project) => {
+              return (
+                <ProjectItems
+                  key={project.id}
+                  name={project.name}
+                  description={project.description}
+                  id={project.id}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
