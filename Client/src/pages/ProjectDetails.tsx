@@ -1,5 +1,13 @@
+import Contact from "../components/Contact/Contact";
+import ProjectDetailsComp from "../components/ProjectDetails/ProjectDetails";
+
 const ProjectDetails = () => {
-  return <h1>This is Project Details Page</h1>;
+  return (
+    <>
+      <Contact />
+      <ProjectDetailsComp />
+    </>
+  );
 };
 
 export default ProjectDetails;

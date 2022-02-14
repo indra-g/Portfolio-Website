@@ -14,7 +14,10 @@ const ProjectItems: React.FC<{
       <h1 className="font-medium text-xl mb-8">{props.name}</h1>
       <h1 className="font-normal my-6 mx-2">{props.description}</h1>
       <div className="my-6">
-        <Link className="text-secondary hover:underline" to="/projectDetails">
+        <Link
+          className="text-secondary hover:underline"
+          to={`/projectDetail/${props.id}`}
+        >
           View Project
         </Link>
       </div>

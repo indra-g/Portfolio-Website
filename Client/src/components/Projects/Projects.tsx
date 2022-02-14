@@ -1,6 +1,6 @@
-import NavBar from "./NavBar";
+import NavBar from "../NavBar";
 import ProjectItems from "./ProjectItems";
-import Footer from "./Footer";
+import Footer from "../Footer";
 
 const Dummy_Projects = [
   {
@@ -50,7 +50,7 @@ const Dummy_Projects = [
 const Projects = () => {
   return (
     <div className="h-screen text-center">
-      <NavBar />
+      <NavBar text="Bringing ideas of life" />
       <h1 className="text-4xl font-roboto font-medium">My Projects</h1>
       <div
         style={{ height: "65%" }}
