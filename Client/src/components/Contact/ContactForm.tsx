@@ -49,14 +49,16 @@ const ContactForm = () => {
     const enteredName = name.current!.value;
     const enteredPhoneNumber: any = phoneNumber.current!.value;
     const enteredMessage = message.current!.value;
-    console.log(name.current!.value);
-    if (enteredPhoneNumber.trim().length < 10) {
-      setPhoneNoError(true);
-      setLoading(false);
-      return;
+    if (enteredPhoneNumber.trim().length !== 0) {
+      if (enteredPhoneNumber.trim().length < 10) {
+        setPhoneNoError(true);
+        setLoading(false);
+        return;
+      }
     }
     setPhoneNoError(false);
     if (emailError) {
+      setLoading(false);
       return;
     }
     //Code for Submitting Data to backend

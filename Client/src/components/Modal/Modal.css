@@ -18,6 +18,11 @@
   }
 }
 
+@media (max-height: 667px) {
+  .modal {
+    top: 3vh;
+  }
+}
 .fade-slide-enter-active {
   animation: openModal 0.5s ease-out forwards;
 }

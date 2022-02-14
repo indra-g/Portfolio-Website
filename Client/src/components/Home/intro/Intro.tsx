@@ -11,7 +11,7 @@ const Intro: React.FC = () => {
         <IntroText />
       </div>
       <img
-        className="max-h-screen object-cover lg:flex-1 hidden lg:flex"
+        className="max-h-screen object-cover lg:flex-1 hidden lg:flex overflow-x-auto"
         src={img1}
         alt="img1"
       ></img>

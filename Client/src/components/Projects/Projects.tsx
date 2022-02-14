@@ -53,7 +53,7 @@ const Projects = () => {
       <NavBar />
       <h1 className="text-4xl font-roboto font-medium">My Projects</h1>
       <div
-        style={{ height: "65vh" }}
+        style={{ height: "65%" }}
         className="overflow-x-hidden overflow-y-auto lg:p-10 m-5"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-20 px-4 md:px-10">
