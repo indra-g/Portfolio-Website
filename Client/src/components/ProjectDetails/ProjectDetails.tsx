@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 
-import NavBar from "../NavBar";
+import NavBar from "../Peripherals/NavBar";
 import ProjectBody from "./ProjectBody";
-import Footer from "../Footer";
+import Footer from "../Peripherals/Footer";
 
 const ProjectDetails: React.FC = (props) => {
   const { projectId } = useParams();

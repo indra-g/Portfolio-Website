@@ -1,6 +1,6 @@
-import NavBar from "../NavBar";
+import NavBar from "../Peripherals/NavBar";
 import ProjectItems from "./ProjectItems";
-import Footer from "../Footer";
+import Footer from "../Peripherals/Footer";
 
 const Dummy_Projects = [
   {
@@ -53,8 +53,7 @@ const Projects = () => {
       <NavBar text="Bringing ideas of life" />
       <h1 className="text-3xl md:text-4xl font-roboto font-medium">My Projects</h1>
       <div
-        style={{ height: "65%" }}
-        className="overflow-x-hidden overflow-y-auto lg:p-10 m-5"
+        className="lg:p-10 m-5"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-20 px-4 md:px-10">
           {Dummy_Projects.map((project) => {

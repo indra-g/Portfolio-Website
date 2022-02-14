@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 
-import logo from "../assets/svgs/logo.svg";
+import logo from "../../assets/svgs/logo.svg";
 import LayersOutlinedIcon from "@mui/icons-material/LayersOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 

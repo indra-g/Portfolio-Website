@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import ContactContext from "../context/contactContext";
+import ContactContext from "../../context/contactContext";
 
-import emailLogo from "../assets/svgs/email.svg";
-import githubLogo from "../assets/svgs/github-brand.svg";
-import linkedInLogo from "../assets/svgs/linkedin-brand.svg";
+import emailLogo from "../../assets/svgs/email.svg";
+import githubLogo from "../../assets/svgs/github-brand.svg";
+import linkedInLogo from "../../assets/svgs/linkedin-brand.svg";
 
 const Footer = () => {
   const contactCtx = useContext(ContactContext);
