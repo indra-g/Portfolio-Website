@@ -51,7 +51,7 @@ const Projects = () => {
   return (
     <div className="h-screen text-center">
       <NavBar text="Bringing ideas of life" />
-      <h1 className="text-4xl font-roboto font-medium">My Projects</h1>
+      <h1 className="text-3xl md:text-4xl font-roboto font-medium">My Projects</h1>
       <div
         style={{ height: "65%" }}
         className="overflow-x-hidden overflow-y-auto lg:p-10 m-5"

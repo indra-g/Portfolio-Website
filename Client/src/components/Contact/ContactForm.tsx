@@ -1,4 +1,5 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
+import useInput from "../../hooks/useInput";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Alert from "@mui/material/Alert";
 import "./ContactForm.css";
@@ -14,68 +15,66 @@ const checkEmail = (email: string) => {
 };
 
 const ContactForm = () => {
-  const name = useRef<HTMLInputElement>(null);
-  const phoneNumber = useRef<HTMLInputElement>(null);
-  const message = useRef<HTMLInputElement>(null);
-
-  const [enteredemail, setEnteredEmail] = useState<string>("");
-  const [emailTouched, setEmailTouched] = useState<boolean>(false);
-  const [emailError, setEmailError] = useState(false);
-  const [phoneNoError, setPhoneNoError] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    setEnteredEmail(value);
-    if (checkEmail(value)) {
-      setEmailError(false);
-    } else {
-      if (emailTouched) {
-        setEmailError(true);
-      }
-    }
-  };
-
-  const handleEmailBlur = () => {
-    setEmailTouched(true);
-    if (!checkEmail(enteredemail)) {
-      setEmailError(true);
-    }
-  };
+  const {
+    value: enteredName,
+    hasError: nameInputError,
+    valueChangeHandler: nameChangeHandler,
+    inputBlurHandler: nameBlurHandler,
+    reset: resetNameInput,
+  } = useInput((value: string) => value.trim() !== "");
+  const {
+    value: enteredEmail,
+    hasError: emailInputError,
+    valueChangeHandler: emailChangeHandler,
+    inputBlurHandler: emailBlurHandler,
+    reset: resetEmailInput,
+  } = useInput(checkEmail);
+  const {
+    value: enteredPhoneNum,
+    hasError: phoneNumInputError,
+    valueChangeHandler: phoneNumChangeHandler,
+    inputBlurHandler: phoneNumBlurHandler,
+    reset: resetPhoneInput,
+  } = useInput((value: string) => value.trim().length >= 10);
+  const {
+    value: enteredMessage,
+    hasError: messageInputError,
+    valueChangeHandler: messageChangeHandler,
+    inputBlurHandler: messageBlurHandler,
+    reset: resetMessageInput,
+  } = useInput((value: string) => value.trim() !== "");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const enteredName = name.current!.value;
-    const enteredPhoneNumber: any = phoneNumber.current!.value;
-    const enteredMessage = message.current!.value;
-    if (enteredPhoneNumber.trim().length !== 0) {
-      if (enteredPhoneNumber.trim().length < 10) {
-        setPhoneNoError(true);
-        setLoading(false);
-        return;
-      }
-    }
-    setPhoneNoError(false);
-    if (emailError) {
+    const errorExits =
+      emailInputError ||
+      phoneNumInputError ||
+      messageInputError ||
+      nameInputError;
+    if (!errorExits) {
+      //Send to backend
+      resetNameInput();
+      resetEmailInput();
+      resetPhoneInput();
+      resetMessageInput();
+      console.log(enteredName, enteredEmail, enteredPhoneNum, enteredMessage);
       setLoading(false);
       return;
     }
-    //Code for Submitting Data to backend
-    console.log(enteredName, enteredemail, enteredPhoneNumber, enteredMessage);
-    setLoading(true);
+    setLoading(false);
+    return;
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {phoneNoError && (
-        <Alert className="m-1" severity="warning">
-          Phone number should be minimum 10 characters
-        </Alert>
-      )}
       <TextField
         type={"text"}
-        inputRef={name}
+        value={enteredName}
+        error={nameInputError}
+        onChange={nameChangeHandler}
+        onBlur={nameBlurHandler}
         size="small"
         margin="normal"
         className="w-11/12"
@@ -85,9 +84,10 @@ const ContactForm = () => {
       />
       <TextField
         type={"email"}
-        error={emailError}
-        onBlur={handleEmailBlur}
-        onChange={handleEmailChange}
+        error={emailInputError}
+        onBlur={emailBlurHandler}
+        onChange={emailChangeHandler}
+        value={enteredEmail}
         size="small"
         margin="normal"
         className="w-11/12"
@@ -97,7 +97,10 @@ const ContactForm = () => {
       />
       <TextField
         type={"number"}
-        inputRef={phoneNumber}
+        error={phoneNumInputError}
+        onBlur={phoneNumBlurHandler}
+        onChange={phoneNumChangeHandler}
+        value={enteredPhoneNum}
         size="small"
         margin="normal"
         name="phoneNumber"
@@ -106,7 +109,10 @@ const ContactForm = () => {
       />
       <TextField
         type={"text"}
-        inputRef={message}
+        error={messageInputError}
+        onBlur={messageBlurHandler}
+        onChange={messageChangeHandler}
+        value={enteredMessage}
         size="small"
         margin="normal"
         className="w-11/12"

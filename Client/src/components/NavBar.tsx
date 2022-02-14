@@ -8,7 +8,9 @@ const NavBar: React.FC<{ text: string }> = (props) => {
   return (
     <nav className="flex items-center justify-between">
       <div className="flex justify-evenly items-center h-max mt-4 w-screen lg:w-1/2">
-        <img src={logo} alt={logo} />
+        <Link to="/">
+          <img src={logo} alt={logo} />
+        </Link>
         <div className="flex">
           <NavLink
             className={(navData) =>
