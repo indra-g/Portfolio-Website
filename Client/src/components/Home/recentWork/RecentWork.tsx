@@ -22,7 +22,7 @@ const RecentWork = () => {
           <h6>All Projects</h6>
         </Link>
       </div>
-      <div style={{ height: "65vh" }} className="flex items-center">
+      <div style={{ height: "65vh" }} className="flex items-center justify-center">
         <Carousel />
       </div>
       <Footer />

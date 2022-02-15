@@ -1,4 +1,3 @@
-import codingClub from "../../../assets/pngs/CodingClub.png";
 import { Link } from "react-router-dom";
 
 const CarouselItems: React.FC<{
@@ -6,6 +5,7 @@ const CarouselItems: React.FC<{
   name: string;
   type: string;
   year: number;
+  img: string;
 }> = (props) => {
   return (
     <div className="h-full flex flex-col justify-evenly lg:flex lg:flex-row items-center lg:justify-center">
@@ -23,7 +23,7 @@ const CarouselItems: React.FC<{
       <div className="hidden lg:flex w-80 h-80 rounded-full bg-secondary -z-10 absolute"></div>
       <img
         className="h-2/5 order-1 lg:order-2"
-        src={codingClub}
+        src={props.img}
         alt="codinglcubimg"
       />
     </div>

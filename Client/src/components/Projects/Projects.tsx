@@ -1,74 +1,63 @@
+import { useEffect } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import useHttp from "../../hooks/useHttp";
+
 import NavBar from "../Peripherals/NavBar";
 import ProjectItems from "./ProjectItems";
 import Footer from "../Peripherals/Footer";
 
-const Dummy_Projects = [
-  {
-    id: "p1",
-    name: "Psg Tech Coding Club Website1",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "p2",
-    name: "Psg Tech Coding Club Website2",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "p3",
-    name: "Psg Tech Coding Club Website3",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "p4",
-    name: "Psg Tech Coding Club Website4",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "p5",
-    name: "Psg Tech Coding Club Website5",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "p6",
-    name: "Psg Tech Coding Club Website6",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-  {
-    id: "p7",
-    name: "Psg Tech Coding Club Website7",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  },
-];
-
 const Projects = () => {
+  const { error, isLoading, getdata, data }: any = useHttp();
+
+  useEffect(() => {
+    getdata("/api/getProjects");
+  }, [getdata]);
+
+  let content;
+  let projects;
+
+  if (error) {
+    content = <h1>Something went wrong</h1>;
+  }
+  if (isLoading) {
+    content = <CircularProgress />;
+  }
+  if (data) {
+    projects = data.map(
+      (project: { id: string; name: string; summary: string }) => (
+        <ProjectItems
+          key={project.id}
+          name={project.name}
+          description={project.summary}
+          id={project.id}
+        />
+      )
+    );
+  }
+
   return (
     <>
-      <div className="text-center">
+      <div style={{ minHeight: "calc(100vh - 116px)" }} className="text-center">
         <NavBar text="Bringing ideas of life" />
         <h1 className="text-3xl md:text-4xl font-roboto font-medium">
           My Projects
         </h1>
-        <div className="lg:p-10 m-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-20 px-4 md:px-10">
-            {Dummy_Projects.map((project) => {
-              return (
-                <ProjectItems
-                  key={project.id}
-                  name={project.name}
-                  description={project.description}
-                  id={project.id}
-                />
-              );
-            })}
+        {!projects && (
+          <div
+            style={{ minHeight: "65vh" }}
+            className="flex justify-center items-center"
+          >
+            {content}
           </div>
-        </div>
+        )}
+
+        {projects && (
+          <div className="lg:p-10 m-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 text-center lg:grid-cols-3 gap-5 lg:gap-20 px-4 md:px-10">
+              {projects}
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
     </>
