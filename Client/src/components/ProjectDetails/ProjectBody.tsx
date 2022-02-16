@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CodingClub from "../../assets/pngs/CodingClub.png";
 
 const ProjectBody: React.FC<{
   id: string;
@@ -44,6 +43,7 @@ const ProjectBody: React.FC<{
             >
               Go to project
             </a>
+
             {showGoToSite && (
               <a
                 href={props.goToSiteLink}

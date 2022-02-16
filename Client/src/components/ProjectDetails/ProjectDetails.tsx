@@ -33,7 +33,7 @@ const ProjectDetails: React.FC = (props) => {
         name={data.name}
         id={data.id}
         description1={data.description1}
-        projectLink={data.githubLink}
+        projectLink={data.gitHubLink}
         goToSiteLink={data.websiteLink}
         description2={data.description2}
         img1Link={data.img1}

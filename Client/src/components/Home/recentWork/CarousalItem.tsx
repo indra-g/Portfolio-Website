@@ -22,9 +22,9 @@ const CarouselItems: React.FC<{
       </div>
       <div className="hidden lg:flex w-80 h-80 rounded-full bg-secondary -z-10 absolute"></div>
       <img
-        className="h-2/5 order-1 lg:order-2"
+        className="h-1/2 order-1 lg:order-2"
         src={props.img}
-        alt="codinglcubimg"
+        alt="projectImg"
       />
     </div>
   );
