@@ -11,7 +11,7 @@ const CarouselItems: React.FC<{
     <div className="h-full flex flex-col justify-evenly lg:flex lg:flex-row items-center lg:justify-center">
       <div className="w-72 order-2 text-center lg:text-left lg:order-1 align-top">
         <h1 className="text-3xl lg:text-5xl my-2">{props.name} </h1>
-        <p className="text-gray-400 text-sm my-2">{props.type}</p>
+        <p className="text-gray-400 text-sm my-2 uppercase">{props.type}</p>
         <p className=" my-2">{props.year}</p>
         <Link
           className="text-secondary hover:underline my-2"

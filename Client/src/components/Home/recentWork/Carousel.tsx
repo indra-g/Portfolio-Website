@@ -21,7 +21,11 @@ const Carousel = () => {
   let projects;
 
   if (error) {
-    content = <h1>Something went wrong</h1>;
+    content = (
+      <h1 className="font-roboto font-semibold text-2xl">
+        Something went wrong
+      </h1>
+    );
   }
   if (isLoading) {
     content = <CircularProgress />;
@@ -50,7 +54,7 @@ const Carousel = () => {
 
   return (
     <>
-      {!projects && content }
+      {!projects && content}
       {projects && (
         <Swiper
           speed={1000}

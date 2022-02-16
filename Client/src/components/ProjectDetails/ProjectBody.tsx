@@ -4,10 +4,10 @@ import CodingClub from "../../assets/pngs/CodingClub.png";
 const ProjectBody: React.FC<{
   id: string;
   name: string;
-  summary: string;
+  description1: string;
   projectLink: string;
   goToSiteLink: string;
-  description: string;
+  description2: string;
   img1Link: string;
   img2Link: string;
 }> = (props) => {
@@ -29,7 +29,7 @@ const ProjectBody: React.FC<{
         </div>
         <div className="ml-9">
           <p className="my-4 text-gray-500 font-medium font-roboto">Summary</p>
-          <p className="my-4 font-roboto">{props.summary}</p>
+          <p className="my-4 font-roboto">{props.description1}</p>
           <div className="flex space-x-6 my-4">
             <a
               href={props.projectLink}
@@ -54,15 +54,15 @@ const ProjectBody: React.FC<{
       </div>
       <img
         className="my-10 lg:relative lg:right-32 h-52 md:h-72 lg:h-96"
-        src={CodingClub}
+        src={props.img1Link}
         alt="projectImg"
       />
       <p className="my-4 font-roboto w-4/5 ml-9 md:w-1/2 lg:w-2/5 lg:relative lg:right-24">
-        {props.description}
+        {props.description2}
       </p>
       <img
         className="my-10 lg:relative lg:left-24 h-52 md:h-72 lg:h-96"
-        src={CodingClub}
+        src={props.img2Link}
         alt="projectImg"
       />
     </div>

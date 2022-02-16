@@ -2,7 +2,7 @@ import Express from "express";
 import "dotenv/config";
 import firebaseConfig from "../config/firebaseConfig";
 import { initializeApp } from "firebase/app";
-import { DocumentData, getFirestore } from "firebase/firestore";
+import { DocumentData, getFirestore, doc, getDoc } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 
 const routes = Express.Router();
@@ -35,6 +35,17 @@ routes.get("/recentProjects", (req, res) => {
     .catch((e) => {
       return res.status(500).send(e);
     });
+});
+
+routes.get("/projectDetails/:projectId", async (req, res) => {
+  const projectId = req.params.projectId;
+  const docRef = doc(db, "projectDetails", projectId);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    res.status(200).json(docSnap.data());
+  } else {
+    res.status(404).send("No Data Found");
+  }
 });
 
 export default routes;
