@@ -20,7 +20,9 @@ const ProjectDetails: React.FC = (props) => {
   let projects;
 
   if (error) {
-    content = <h1 className="font-roboto font-semibold text-2xl">Something went wrong</h1>;
+    content = (
+      <h1 className="font-roboto font-medium text-2xl">Something went wrong</h1>
+    );
   }
   if (isLoading) {
     content = <CircularProgress />;

@@ -22,7 +22,7 @@ const Carousel = () => {
 
   if (error) {
     content = (
-      <h1 className="font-roboto font-semibold text-2xl">
+      <h1 className="font-roboto font-medium text-2xl">
         Something went wrong
       </h1>
     );
