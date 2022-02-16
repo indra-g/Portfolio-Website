@@ -38,6 +38,7 @@ const ProjectDetails: React.FC = (props) => {
         description2={data.description2}
         img1Link={data.img1}
         img2Link={data.img2}
+        goToDesign={data.figmaLink}
       />
     );
   }

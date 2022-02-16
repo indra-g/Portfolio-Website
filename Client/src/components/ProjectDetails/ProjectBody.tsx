@@ -7,17 +7,22 @@ const ProjectBody: React.FC<{
   description1: string;
   projectLink: string;
   goToSiteLink: string;
+  goToDesign: string;
   description2: string;
   img1Link: string;
   img2Link: string;
 }> = (props) => {
   const [showGoToSite, setShowGoToSite] = useState(false);
-  const { goToSiteLink } = props;
+  const [showGoToDesign, setShowGoToDesign] = useState(false);
+  const { goToSiteLink, goToDesign } = props;
   useEffect(() => {
     if (goToSiteLink) {
       setShowGoToSite(true);
     }
-  }, [goToSiteLink]);
+    if (goToDesign) {
+      setShowGoToDesign(true);
+    }
+  }, [goToDesign, goToSiteLink]);
   return (
     <div className="flex flex-col mx-auto items-center pt-10 pb-2">
       <div className="w-4/5 md:w-1/2 lg:w-2/5">
@@ -46,7 +51,17 @@ const ProjectBody: React.FC<{
                 rel="noreferrer noopener"
                 className="text-secondary hover:underline font-roboto"
               >
-                Go to Site
+                Go to site
+              </a>
+            )}
+            {showGoToDesign && (
+              <a
+                href={props.goToDesign}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-secondary hover:underline font-roboto"
+              >
+                Go to figma
               </a>
             )}
           </div>

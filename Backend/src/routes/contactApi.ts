@@ -13,7 +13,7 @@ routes.post("/sendEmail", async (req, res) => {
     to: "indrashekar406@gmail.com",
     subject: "This is the message from your portfolio website",
     html: `<h1>Name: ${name}<br/>
-    <h2>Sender emailaddress: ${userEmail}<br/>
+    <h2>Sender email address: ${userEmail}<br/>
     ${phoneNo && `<h2>PhoneNumber: +91 ${phoneNo}</h2><br/>`}
       <h3>${message}</h3>
     </h1>`,
