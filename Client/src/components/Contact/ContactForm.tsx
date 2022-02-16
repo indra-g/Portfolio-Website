@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import useInput from "../../hooks/useInput";
+import useHttp from "../../hooks/useHttp";
+
+import Alert from "@mui/material/Alert";
 import LoadingButton from "@mui/lab/LoadingButton";
-import "./ContactForm.css";
 import TextField from "@mui/material/TextField";
+import "./ContactForm.css";
 
 const checkEmail = (email: string) => {
   let re =
@@ -14,7 +17,6 @@ const checkEmail = (email: string) => {
 };
 
 const ContactForm = () => {
-  const [loading, setLoading] = useState(false);
   const {
     value: enteredName,
     hasError: nameInputError,
@@ -43,31 +45,45 @@ const ContactForm = () => {
     inputBlurHandler: messageBlurHandler,
     reset: resetMessageInput,
   } = useInput((value: string) => value.trim() !== "");
+  const { isLoading, error, senddata, data } = useHttp();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    const errorExits =
-      emailInputError ||
-      phoneNumInputError ||
-      messageInputError ||
-      nameInputError;
+    const errorExits = emailInputError || messageInputError || nameInputError;
     if (!errorExits) {
-      //Send to backend
-      resetNameInput();
-      resetEmailInput();
-      resetPhoneInput();
-      resetMessageInput();
-      console.log(enteredName, enteredEmail, enteredPhoneNum, enteredMessage);
-      setLoading(false);
+      const data = {
+        name: enteredName,
+        email: enteredEmail,
+        phoneNo: enteredPhoneNum,
+        message: enteredMessage,
+      };
+      senddata("/api/sendEmail", data).then(() => {
+        if (data && !error) {
+          resetNameInput();
+          resetEmailInput();
+          resetPhoneInput();
+          resetMessageInput();
+        }
+      });
       return;
     }
-    setLoading(false);
     return;
   };
 
+  let alert;
+
+  if (error) {
+    alert = (
+      <Alert severity="error">Something went wrong, try again later!</Alert>
+    );
+  }
+  if (data && !error) {
+    alert = <Alert severity="success">{data}</Alert>;
+  }
+
   return (
     <form onSubmit={handleSubmit}>
+      {alert}
       <TextField
         type={"text"}
         value={enteredName}
@@ -131,7 +147,7 @@ const ContactForm = () => {
             paddingLeft: "40px",
             paddingRight: "40px",
           }}
-          loading={loading}
+          loading={isLoading}
           variant="contained"
         >
           Send
