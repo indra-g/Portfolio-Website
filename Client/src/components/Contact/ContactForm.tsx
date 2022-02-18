@@ -37,7 +37,9 @@ const ContactForm = () => {
     valueChangeHandler: phoneNumChangeHandler,
     inputBlurHandler: phoneNumBlurHandler,
     reset: resetPhoneInput,
-  } = useInput((value: string) => value.trim().length >= 10);
+  } = useInput(
+    (value: string) => value.trim().length >= 10 || value.trim().length === 0
+  );
   const {
     value: enteredMessage,
     hasError: messageInputError,
@@ -49,7 +51,11 @@ const ContactForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const errorExits = emailInputError || messageInputError || nameInputError;
+    const errorExits =
+      emailInputError ||
+      messageInputError ||
+      nameInputError ||
+      phoneNumInputError;
     if (!errorExits) {
       const data = {
         name: enteredName,

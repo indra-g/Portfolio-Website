@@ -7,6 +7,28 @@ routes.post("/sendEmail", async (req, res) => {
   const userEmail = req.body.email;
   const phoneNo = req.body.phoneNo;
   const message = req.body.message;
+  let informationIsValid = false;
+
+  const checkEmail = (email: string) => {
+    let re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(email)) {
+      return true;
+    }
+    return false;
+  };
+
+  if (
+    name.trim().length !== 0 ||
+    message.trim().length !== 0 ||
+    checkEmail(userEmail)
+  ) {
+    informationIsValid = true;
+  }
+
+  if (!informationIsValid) {
+    return res.status(400).send("Entered Information is invalid");
+  }
 
   let mailOptions = {
     from: "indrashekar406@gmail.com",

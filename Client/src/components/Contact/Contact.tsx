@@ -23,8 +23,8 @@ const Contact: React.FC = () => {
         </button>
       </div>
       <h1 className="text-2xl lg:text-3xl font-roboto py-1">Get In Touch</h1>
-      <p className="text-sm lg:text-base font-roboto py-1">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit
+      <p className="text-sm lg:text-base font-roboto py-1 px-4 md:px-6">
+        If you love hot wings as much as i do.
       </p>
       <ContactForm />
       <div className="flex space-x-2 justify-center pt-5 pb-2">

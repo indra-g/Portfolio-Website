@@ -14,7 +14,8 @@ const Footer = () => {
     <div className="text-center py-5">
       <p className="my-2 font-roboto px-7">Let's connect</p>
       <p className="my-2 font-roboto px-7">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        Love hot wings as much as i do? Let's talk about how awesome they are!
+        We can code while we eat hot wings!
       </p>
       <div className="flex items-center justify-center space-x-2 py-1">
         <a
