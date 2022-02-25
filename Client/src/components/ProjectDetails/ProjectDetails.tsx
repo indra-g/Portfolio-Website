@@ -36,9 +36,10 @@ const ProjectDetails: React.FC = (props) => {
         projectLink={data.gitHubLink}
         goToSiteLink={data.websiteLink}
         description2={data.description2}
-        img1Link={data.img1}
-        img2Link={data.img2}
+        img1Link={data.img1 || data.img1Mobile}
+        img2Link={data.img2 || data.img2Mobile}
         goToDesign={data.figmaLink}
+        downloadApp = {data.downloadApp}
       />
     );
   }

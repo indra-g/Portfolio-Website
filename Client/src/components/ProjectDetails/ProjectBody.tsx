@@ -10,10 +10,12 @@ const ProjectBody: React.FC<{
   description2: string;
   img1Link: string;
   img2Link: string;
+  downloadApp: string;
 }> = (props) => {
   const [showGoToSite, setShowGoToSite] = useState(false);
   const [showGoToDesign, setShowGoToDesign] = useState(false);
-  const { goToSiteLink, goToDesign } = props;
+  const [showDownloadApp, setShowDownloadApp] = useState(false);
+  const { goToSiteLink, goToDesign, downloadApp } = props;
   useEffect(() => {
     if (goToSiteLink) {
       setShowGoToSite(true);
@@ -21,7 +23,10 @@ const ProjectBody: React.FC<{
     if (goToDesign) {
       setShowGoToDesign(true);
     }
-  }, [goToDesign, goToSiteLink]);
+    if (downloadApp) {
+      setShowDownloadApp(true);
+    }
+  }, [downloadApp, goToDesign, goToSiteLink]);
   return (
     <div className="flex flex-col mx-auto items-center pt-10 pb-2">
       <div className="w-4/5 md:w-1/2 lg:w-2/5">
@@ -62,6 +67,14 @@ const ProjectBody: React.FC<{
                 className="text-secondary hover:underline font-roboto"
               >
                 Go to figma
+              </a>
+            )}
+            {showDownloadApp && (
+              <a
+                href={props.downloadApp}
+                className="text-secondary hover:underline font-roboto"
+              >
+                Download app
               </a>
             )}
           </div>

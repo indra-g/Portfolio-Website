@@ -64,7 +64,7 @@ const Grid = () => {
           </h1>
           <p className="text-md font-roboto">
             But my best skill is actually eating hot wings.I am undisputed king
-            of hot wings challenges. Cheetos and kurkure are my favorite snacks.
+            of hot wings challenges. Bingo and kurkure are my favorite snacks.
           </p>
         </div>
       </div>

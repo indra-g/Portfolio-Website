@@ -26,10 +26,16 @@ const Projects = () => {
   }
   if (data) {
     projects = data.map(
-      (project: { id: string; name: string; summary: string; img1: string }) => (
+      (project: {
+        id: string;
+        name: string;
+        summary: string;
+        img1: string;
+        imgMain: string;
+      }) => (
         <ProjectItems
           key={project.id}
-          img={project.img1}
+          img={project.img1 || project.imgMain}
           name={project.name}
           description={project.summary}
           id={project.id}
